@@ -15,26 +15,34 @@ public class HlavniProgram {
 
         zofka.setLocation(100,600);
         zofka.setPenColor(new Color(255, 33,235));
-        zmrzlina();
+        iceCream();
 
         zofka.turnRight(90); // žofka se srovná směrem nahoru
 
         zofka.setLocation(500,650);
         zofka.setPenColor(new Color(33, 203, 255));
 
-        snehulak();
-//        zofka.turnRight(180); // zofka se srovná směrem nahoru
+        snowman();
+        zofka.turnRight(180); // zofka se srovná směrem nahoru
+
+        zofka.setLocation(900,400);
+        zofka.setPenColor(new Color(66, 55, 55));
+        zofka.turnLeft(90);
+
+        locomotive();
+
+
 
 
 
     }
 
-    public void zmrzlina(){
+    public void iceCream(){
         mnohouhelnikRegular(9, 36, 10);
         zofka.turnRight(165);
         rovnoramennyTrojuhelnik(200, 30);
     }
-    public void snehulak(){
+    public void snowman(){
         mnohouhelnikRegular(20, 36,10);
         zofka.penUp();
         mnohouhelnikRegular(20, 9,10);
@@ -57,6 +65,29 @@ public class HlavniProgram {
         zofka.penDown();
         mnohouhelnikRegular(10, 36,10);
     }
+    public void locomotive(){
+        pravouhlyTrojuhelnik(100);
+        zofka.turnRight(180);
+        moveYourShell(30);
+        rectangle(200,100,false);
+        zofka.turnRight(180);
+        moveYourShell(50);
+        mnohouhelnikRegular(5, 36, 10);
+        moveYourShell(100);
+        mnohouhelnikRegular(5, 36, 10);
+        moveYourShell(50);
+        zofka.turnLeft(90);
+        rectangle(200, 150, true);
+        zofka.turnRight(90);
+        mnohouhelnikRegular(13, 36, 10);
+    }
+
+    public void moveYourShell(int moveLength){
+        zofka.penUp();
+        zofka.move(moveLength);
+        zofka.penDown();
+    }
+
     public void mnohouhelnikRegular(double lineLength, int angleCount, int angle) {
         for (int i = 0; i < angleCount; i++) {
         zofka.move(lineLength);
